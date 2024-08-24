@@ -60,3 +60,32 @@ arrayHasElement(array2, valueToCheck1);
 arrayHasElement(array1, valueToCheck2);
 arrayHasElement(["ala", "bala", "portocala"], "ala");
 arrayHasElement(array1, "ala");
+
+/** Functii cu parametri si return- Sunt compuse din cuvantul cheie function urmat de numele functiei urmat de paranteze rotunde
+ *  intre care definim parametrii functiei (optional) (param1, param2) urmate de paranteze acolade { } 
+ * in interiorul carora scriem liniile de cod ce dorim sa fie executate in momentul apelarii 
+ * functiei printre care trebuie sa existe si o linie de cod ce returneaza o valoare 
+ * folosind cuvantul cheie return urmat de valoare.
+
+Apelarea functiilor cu return:
+Se realizeaza ca la celelalte functii iar optional putem salva 
+valoarea returnata intr-o variabila.
+ */
+
+function removeEvenNumbers(arrayToModified) {
+    const newArray = [];
+    for (const num of arrayToModified) {
+        if(num % 2 > 0) {
+            newArray.push(num);
+        }
+    }
+
+    return newArray;
+}
+
+const arrayModified = removeEvenNumbers(array1);
+console.log(`Modified array1 is: ${arrayModified}`);
+
+const arrayModified2 = removeEvenNumbers(array2);
+console.log(`Modified array1 is: ${arrayModified2}`);
+
