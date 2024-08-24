@@ -89,3 +89,107 @@ console.log(`Modified array1 is: ${arrayModified}`);
 const arrayModified2 = removeEvenNumbers(array2);
 console.log(`Modified array1 is: ${arrayModified2}`);
 
+const shoppingCart = [];
+const stockProducts = [
+    {
+        name: "Hat",
+        price: 22.99,
+        stock: 12
+    },
+    {name: "Tshirts",
+    price: 30.99,
+    stock: 40
+}
+];
+
+function moveFromStockToCart(productName) {
+    for (const product of stockProducts) {
+        if (product.name === productName ) {
+            shoppingCart.push({name: product.name, quantity: 1});
+            product.stock -= 1;
+        }
+    }
+}
+
+console.log(`Current stock: `, stockProducts);
+console.log(`shopping cart: `,shoppingCart);
+
+moveFromStockToCart("Hat");
+console.log(`Current stock: `, stockProducts);
+console.log(`shopping cart: `, shoppingCart);
+
+
+/** Functii anonime- Definirea functiilor anonime:
+Sunt functii ce le definim fara a fi nevoie sa le denumim dar le putem salva in variabile.
+ Folosirea lor va fi posibila prin folosirea variabilei in care este salvata functia. 
+ Aceste functii, optional, pot avea parametrii si valori de return.
+
+Apelarea functiilor anonime:
+Se realizeaza ca la celelalte functii insa folosim numele variabilei in care e salvata functia.
+ */
+
+const printHello = function () {
+    console.log("Hello");
+};
+
+printHello();
+
+function mapArray(arrayToMap, mappingFunction) {
+    const newArray = [];
+    for (const element of arrayToMap) {
+        let mappingFunctionresult = mappingFunction(element);
+        newArray.push(mappingFunctionresult);
+    }
+
+    return newArray;
+}
+
+const arrayToMap = [1, 2, 3];
+const doubledArray = mapArray(arrayToMap, function (el) {
+    return el * 2;
+});
+
+console.log(`arrayToMap: ${arrayToMap}`);
+console.log(`doubledArray: ${doubledArray}`);
+
+const doubled2 = arrayToMap.map(function (el) {
+    return el * 2;
+});
+
+console.log(`doubled2: ${doubled2}`);
+
+/** Functiile sageata- Arrow functions sunt o sintaxa mai concisa si mai compacta
+ *  pentru definirea functiilor în JavaScript. Această sintaxa a fost introdusa in ECMAScript 6 (ES6) si ofera
+ *  o alternativa la modurile traditionale de definire a functiilor. 
+ * Arrow functions sunt adesea folosite pentru a simplifica codul si pentru a oferi o modalitate mai
+ *  eleganta de a lucra cu functii anonime.
+ */
+
+const sayHello = () => {
+    console.log("Hello");
+};
+
+sayHello();
+
+const sayHelloTo = (personName) => {
+    console.log(`Hello ${personName}`);
+};
+
+sayHelloTo("Cristina");
+
+const getGreeting = (greetedPerson) => {
+    return `Greetings ${greetedPerson}!`;
+};
+
+let greeting = getGreeting("Christina");
+console.log(greeting);
+
+greeting = getGreeting("Maria");
+console.log(greeting);
+
+const doubled3 = arrayToMap.map((el) => {
+    return el * 2;
+    // const doubled3 =arrayToMap.map(el => el *2)
+});
+console.log(`doubled3: ${doubled3}`);
+
